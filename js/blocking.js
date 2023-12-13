@@ -35,11 +35,12 @@ function updateThemeMode(event, { isInitial = false } = {}) {
     currentMode = savedThemeMode === LIGHT ? LIGHT : DARK;
   } else {
     // fall back on browser media for first toggle
-    const prefersDarkMode = window.matchMedia(
-      '(prefers-color-scheme:dark)',
-    ).matches;
+    // const prefersDarkMode = window.matchMedia(
+    //   '(prefers-color-scheme:dark)',
+    // ).matches;
 
-    currentMode = prefersDarkMode ? DARK : LIGHT;
+    // currentMode = prefersDarkMode ? DARK : LIGHT;
+    currentMode = LIGHT; // force light mode
   }
 
   // if running initially - do not 'flip' - instead apply current mode
