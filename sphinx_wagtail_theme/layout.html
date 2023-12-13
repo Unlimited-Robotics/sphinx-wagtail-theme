@@ -23,8 +23,8 @@
     {% block htmltitle %}
         <title>{{ title|striptags|e }}{{ titlesuffix }}</title>
     {% endblock %}
-    {%- if favicon %}
-        <link rel="shortcut icon" href="{{ pathto('_static/' + favicon, 1) }}" />
+    {%- if theme_favicon and theme_favicon != 'None' %}
+        <link rel="shortcut icon" href="{{ pathto('_static/' + theme_favicon, 1) }}" />
     {%- endif %}
 
     {#- Include our own stylesheets -#}
@@ -73,11 +73,11 @@
     <script type="text/javascript" src="{{ pathto('_static/dist/blocking.js', 1) }}"></script>
     <header class="px-xl-7 px-lg-5 px-md-5 px-3 container-fluid bg-white">
         <div class="container-fluid">
-            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold justify-content-between">
                 {%- if theme_logo and theme_logo != 'None' %}
                     <a href="{{ theme_logo_url | default(pathto(master_doc), true) }}"
                         {% if theme_logo_alt %}title="{{ theme_logo_alt|e }}"{% endif %}
-                        class="logo navbar-brand"
+                        class="logo navbar-brand flex-shrink-0"
                     >
                         <img src="{{ pathto('_static/' + theme_logo, 1) }}"
                             {%- if theme_logo_width %} width="{{ theme_logo_width|e }}"{% endif %}
@@ -88,17 +88,34 @@
                         />
                     </a>
                 {% endif %}
-                {% if theme_header_links %}
-                    <div class="collapse navbar-collapse justify-content-end">
-                        <ul class="navbar-nav">
-                            {% for link in theme_header_links.split(',') %}
-                                {% set link_text=link.split("|")[0] %}
-                                {% set link_url=link.split("|")[1] %}
-                                <li class="nav-item"><a class="nav-link"  href="{{ link_url }}">{{ link_text }}</a></li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                {% endif %}
+                <div class="justify-content-end" id="header1_sidebar">
+                    <ul class="navbar-nav d-flex flex-row"> 
+                    {% if theme_discord_url and theme_discord_url != 'None' %}
+                        <li class="nav-item">
+                        <a class="btn btn-sm btn-light text-decoration-none m-1" href="{{ theme_discord_url }}" rel="nofollow">
+                            <span class="btn-icon"><span class="fab fa-discord"></span></span>
+                            <span class="btn-text">Discord</span>
+                        </a>
+                        </li>
+                    {% endif %}
+                    {% if theme_github_url_project and theme_github_url_project != 'None' %}
+                        <li class="nav-item">
+                        <a class="btn btn-sm btn-light text-decoration-none m-1" href="{{ theme_github_url_project }}" rel="nofollow">
+                            <span class="btn-icon"><span class="fab fa-github"></span></span>
+                            <span class="btn-text">Github</span>
+                        </a>
+                        </li>
+                    {% endif %}
+                    {% if theme_developers_url and theme_developers_url != 'None' %}
+                        <li class="nav-item">
+                        <a class="btn btn-sm btn-primary text-decoration-none m-1" href="{{ theme_developers_url }}" rel="nofollow">
+                            <span class="btn-icon"></span>
+                            <span class="btn-text font-weight-bold">Developers Center</span>
+                        </a>
+                        </li>
+                    {% endif %}
+                    </ul>
+                </div>
             </div>
         </div>
     </header>
