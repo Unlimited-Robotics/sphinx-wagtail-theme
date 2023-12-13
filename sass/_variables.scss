@@ -17,10 +17,10 @@ $gray-900: #212121;
 $black: #000;
 
 $teal: #007d7e;
-$indigo: #2e1f5e;
-$bright-green: #3beccd;
-$bright-green-700: color.adjust($bright-green, $lightness: -15%);
-$bright-green-900: color.adjust($bright-green, $lightness: -30%);
+$indigo: #08183f;
+$bright-purple: #863ab5;
+$bright-purple-700: color.adjust($bright-purple, $lightness: -15%);
+$bright-purple-900: color.adjust($bright-purple, $lightness: -30%);
 
 $primary: $indigo;
 $success: #a456c9;
@@ -29,11 +29,15 @@ $warning: #2f128d;
 $danger: #a72925;
 $search: #ffe69c;
 
+$internal_reference_link: #0c14ff;
+$internal_reference_link_hover: #6a75ff;
+$internal_reference_link_bg: #DDF7FF;
+
 $link-color: $primary;
-$link-border-color: $bright-green;
-$link-hover-color: $bright-green-700;
-$link-active-color: $bright-green-900;
-$link-border-active-color: $bright-green-900;
+$link-border-color: $bright-purple;
+$link-hover-color: $bright-purple-700;
+$link-active-color: $bright-purple-900;
+$link-border-active-color: $bright-purple-900;
 
 $link-alternate-color: #fff;
 $link-alternate-hover-color: color.adjust(
@@ -66,6 +70,7 @@ $table-dark-bg: $darkmode-bg;
 // Code Colors
 // --------------------------------------------------
 
+$inline-code-color-bg: #f8f9fa;
 $code-color: #d02040;
 $code-color-file: hsl(328, 100%, 50%);
 $code-color-html: hsl(275, 100%, 40%);
@@ -101,7 +106,10 @@ $base16-base0F: #ff5370;
 // Fonts
 // --------------------------------------------------
 
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap');
+
 $font-family-sans-serif:
+  'Nunito',
   // iOS Safari, macOS Safari, macOS Firefox
   '-apple-system',
   // macOS Chrome
@@ -208,3 +216,22 @@ $grid-gutter-width: 40px;
 // --------------------------------------------------
 
 $medium-width: 768px;
+
+
+// --------------------------------------------------
+// Spacers
+// --------------------------------------------------
+
+$multiplier: 1;
+$spacer: 1rem !default;
+$spacers: (
+  0: 0,
+  1: ($spacer * (.25*$multiplier)),
+  2: ($spacer * (.5*$multiplier)),
+  3: ($spacer * (1*$multiplier)),
+  4: ($spacer * (1.5*$multiplier)),
+  5: ($spacer * (3*$multiplier)),
+  6: ($spacer * (5*$multiplier)),
+  7: ($spacer * (10*$multiplier)),
+  8: ($spacer * (15*$multiplier))
+)

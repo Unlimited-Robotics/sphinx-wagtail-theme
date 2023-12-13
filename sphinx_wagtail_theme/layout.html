@@ -71,8 +71,7 @@
 </head>
 <body>
     <script type="text/javascript" src="{{ pathto('_static/dist/blocking.js', 1) }}"></script>
-    <header class="container-fluid bg-primary">
-        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">{{ _('Skip to content') }}</a>
+    <header class="px-xl-7 px-lg-5 px-md-5 px-3 container-fluid bg-white">
         <div class="container-fluid">
             <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
                 {%- if theme_logo and theme_logo != 'None' %}
@@ -87,7 +86,6 @@
                             {%- if theme_logo_title %} title="{{ theme_logo_title|e }}"{% endif %}
                             class="logo-img"
                         />
-                        {{ theme_project_name }}
                     </a>
                 {% endif %}
                 {% if theme_header_links %}
@@ -101,6 +99,16 @@
                         </ul>
                     </div>
                 {% endif %}
+            </div>
+        </div>
+    </header>
+    <header class="px-xl-7 px-md-5 px-3 container-fluid bg-primary">
+        <div class="container-fluid text-white">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold py-4">
+                <a href="{{ pathto(master_doc) }}" class="text-white homebutton">
+                    <i class="fas fa-home pl-3 pr-3"></i>
+                </a>
+                {{ theme_project_name }}
                 <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
                     <span class="navbar-toggler-icon"></span>
                     <span class="sr-only">{{ _('menu') }}</span>
@@ -108,7 +116,7 @@
             </div>
         </div>
     </header>
-    <div class="container-fluid">
+    <div class="px-xl-7 px-md-5 px-3 container-fluid">
         <div class="row">
             <aside class="col-12 col-lg-3 sidebar-container">
                 <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
@@ -120,7 +128,7 @@
                     </div>
                 </div>
             </aside>
-            <div class="col-12 col-lg-9 pt-5">
+            <div class="col-12 col-lg-7 col-xl-9 pt-5">
                 <header class="row align-items-baseline">
                     <div class="col">
                         {% include "breadcrumbs.html" %}
@@ -152,7 +160,7 @@
                         {% include "pager.html" %}
                     </div>
                     {% if display_toc and not hidetoc %}
-                    <nav class="col-12 col-lg-3 pb-4">
+                    <nav class="col-12 col-lg-3 pb-4 d-none d-md-block">
                         <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
                             <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
                             {{ toc }}

@@ -60,6 +60,32 @@ table.docutils {
   margin-bottom: $spacer;
 }
 
+.table .thead-light th, table.docutils:not(.field-list) .thead-light th, table.docutils:not(.field-list) thead th {
+  background: #f5f5f5;
+  font-weight: 600;
+  vertical-align: top;
+  font-weight: bold;
+}
+
+.table th, table.docutils:not(.field-list) th, .table td, table.docutils:not(.field-list) td {
+  vertical-align: top;
+  padding: 2px 10px;
+  border-top: 1px solid #dedede;
+}
+
+table td p {
+  margin: 0%;
+}
+
+.row-even {
+  background-color: inherit !important;
+}
+
+table th p {
+  margin: 0%;
+}
+
+
 // Add ample spacing between sub-headings within the doc.
 main {
   h2,
@@ -68,5 +94,38 @@ main {
   h5,
   h6 {
     margin-top: $headings-margin-bottom * 3;
+  }
+}
+
+// code
+code {
+  background-color: $inline-code-color-bg;
+  border-radius: 0.25rem;
+  color: $code-color;
+  font-size: 90%;
+  padding: 0.2rem 0.4rem;
+}
+
+// internal references
+main{
+  .reference.internal{
+    background: $internal_reference_link_bg;
+    font-weight: bolder;
+    color: $internal_reference_link;
+    text-decoration: underline;
+    :hover{
+      color: $internal_reference_link_hover;
+    }
+  }
+}
+
+// sidebar selected item
+#collapseSidebar {
+  .current.reference.internal {
+    background-color: $primary;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    color: $white;
+    font-weight: bold;
   }
 }
