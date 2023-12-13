@@ -3,6 +3,7 @@
 /// If a component needs more significant rules other than simple
 /// background/foreground overrides, implement the relevant dark mode code in
 /// the component's scss file.
+$link-hover-color-dark: #c76ed7;
 
 // Utilities during light mode.
 .dark-only {
@@ -25,7 +26,7 @@ body.theme-dark {
 
     &:focus,
     &:hover {
-      color: $link-hover-color;
+      color: $link-hover-color-dark;
     }
   }
 
@@ -52,7 +53,7 @@ body.theme-dark {
   }
 
   .toc .toctree-expand {
-    background-color: $primary;
+    background-color: $darkmode-bg;
   }
 
   // Images
@@ -114,22 +115,22 @@ body.theme-dark {
   .btn-light {
     color: color-yiq($darkmode-bg-lighter);
     background-color: $darkmode-bg-lighter;
-    border-color: $primary;
+    border-color: $darkmode-primary;
 
     &:hover,
     &:focus,
     &:focus-within,
     &:not(:disabled):not(.disabled):active,
     &:not(:disabled):not(.disabled).active {
-      color: color-yiq($primary);
-      background-color: $primary;
+      color: color-yiq($darkmode-primary);
+      background-color: $darkmode-primary;
     }
   }
 
   .form-control {
     color: color-yiq($darkmode-bg-lighter);
     background-color: $darkmode-bg-lighter;
-    border-color: $primary;
+    border-color: $darkmode-primary;
   }
 
   .form-control:focus {
@@ -142,14 +143,33 @@ body.theme-dark {
 
   .input-group-text {
     color: $darkmode-color-darker;
-    border-color: $primary;
+    border-color: $darkmode-primary;
 
     &.bg-white {
       background-color: $darkmode-bg-lighter !important;
     }
   }
 
+  #collapseSidebar {
+    .current.reference.internal {
+      background-color: $darkmode-bg-lighter;
+      color: #fff;
+    }
+  }
+
   code {
     color: $darkmode-code;
+    background-color: $darkmode-inline-code-bg;
+  }
+
+  header {
+    &.bg-white {
+      background-color: $black !important;
+    }
+  }
+
+  main .reference.internal {
+    background: $darkmode-bg-lighter;
+    color: white;
   }
 }
