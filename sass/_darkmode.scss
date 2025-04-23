@@ -14,6 +14,10 @@ $link-hover-color-dark: #c76ed7;
   display: unset;
 }
 
+body:not(.theme-dark) #dark-logo {
+  display: none;
+}
+
 // Global dark mode overrides.
 body.theme-dark {
   color: $darkmode-color;

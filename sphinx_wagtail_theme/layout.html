@@ -103,6 +103,7 @@
                     <a href="{{ theme_logo_url | default(pathto(master_doc), true) }}"
                         {% if theme_logo_alt %}title="{{ theme_logo_alt|e }}"{% endif %}
                         class="logo navbar-brand flex-shrink-0 dark-only"
+                        id="dark-logo"
                     >
                         <img src="{{ pathto('_static/' + theme_logo_dark, 1) }}"
                             {%- if theme_logo_width %} width="{{ theme_logo_width|e }}"{% endif %}
